@@ -1,0 +1,20 @@
+name: flutter_cached_pdfview
+description: A package to show pdf file, the first time will download the file and cache it, other time will get from the cache without the internet.
+version: 0.0.1
+author: Abdelrahman Saed <abdoo.dev@gmail.com>
+homepage: https://github.com/AbdOoSaed/flutter_cached_pdfview
+repository: https://github.com/AbdOoSaed/flutter_cached_pdfview
+issue_tracker: https://github.com/AbdOoSaed/flutter_cached_pdfview/issues
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_pdfview: ^1.0.2
+  flutter_cache_manager: ^1.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
