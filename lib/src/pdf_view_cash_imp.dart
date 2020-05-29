@@ -7,7 +7,7 @@ import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_cached_pdfview/src/download_indicator.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 
-class PDFViewCash extends StatelessWidget {
+class CachedPDFView extends StatelessWidget {
   final String url;
 
   final bool enableSwipe;
@@ -27,7 +27,7 @@ class PDFViewCash extends StatelessWidget {
   final PageErrorCallback onPageError;
   final Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers;
 
-  const PDFViewCash({
+  const CachedPDFView({
     Key key,
     @required this.url,
     this.onViewCreated,
@@ -55,17 +55,19 @@ class PDFViewCash extends StatelessWidget {
         builder: (context, snapshot) {
           var loading = !snapshot.hasData || snapshot.data is DownloadProgress;
 
-          if (snapshot.hasError) return Center(
-            child: const Text(
+          if (snapshot.hasError)
+            return Center(
+              child: const Text(
                 'Error\nNo Internet And Not Cashed Yet!',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 16),
               ),
-          );
-
-          else if (loading) return DownloadIndicator(progress:( snapshot.data as DownloadProgress)?.progress);
-
-          else return PDFView(
+            );
+          else if (loading)
+            return DownloadIndicator(
+                progress: (snapshot.data as DownloadProgress)?.progress);
+          else
+            return PDFView(
               filePath: (snapshot.data as FileInfo).file.path,
               onViewCreated: onViewCreated,
               onRender: onRender,
