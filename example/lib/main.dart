@@ -19,7 +19,9 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('flutter_cached_pdfview Demo'),
       ),
-      body: CachedPDFView(url: 'http://africau.edu/images/default/sample.pdf'),
+      body: CachedPDFView(
+        url: 'http://africau.edu/images/default/sample.pdf',
+      ),
     );
   }
 }

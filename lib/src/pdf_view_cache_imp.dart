@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -48,12 +47,32 @@ class CachedPDFView extends StatelessWidget {
     this.fitPolicy = FitPolicy.WIDTH,
   }) : super(key: key);
 
+  CachedPDFView.bhDFG(
+      this.url,
+      this.enableSwipe,
+      this.swipeHorizontal,
+      this.password,
+      this.nightMode,
+      this.autoSpacing,
+      this.pageFling,
+      this.pageSnap,
+      this.defaultPage,
+      this.fitPolicy,
+      this.fitEachPage,
+      this.onViewCreated,
+      this.onRender,
+      this.onPageChanged,
+      this.onError,
+      this.onPageError,
+      this.gestureRecognizers) {}
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<FileResponse>(
         stream: DefaultCacheManager().getFileStream(url, withProgress: true),
         builder: (context, snapshot) {
-          var loading = !snapshot.hasData || snapshot.data is DownloadProgress;
+          final loading =
+              !snapshot.hasData || snapshot.data is DownloadProgress;
 
           if (snapshot.hasError)
             return Center(
