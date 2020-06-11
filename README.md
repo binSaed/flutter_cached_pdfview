@@ -17,13 +17,18 @@
 * Support Open Pdf From Asset
 * Support Open Pdf From URl and Cache it
 ---
-### 3. Setup
+### Setup
 
 #### iOS
 Opt-in to the embedded views preview by adding a boolean property to the app's `Info.plist` file
 with the key `io.flutter.embedded_views_preview` and the value `YES`.
 
-[ready-made in the [Example](https://github.com/AbdOoSaed/flutter_cached_pdfview/tree/master/example)
+
+iOS (only support> 11.0) you need to add this line in your ios/Podfile 
+
+`platform :ios, '11.0'`
+
+ready-made in the [Example](https://github.com/AbdOoSaed/flutter_cached_pdfview/tree/master/example)
 
 ### 4. Import it
 
