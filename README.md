@@ -115,7 +115,7 @@ If you use proguard, you should include this line [ready-made in the [Example](h
 
 [PDFKit](https://developer.apple.com/documentation/pdfkit)
 
-# Support
+
 
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
   <input type="hidden" name="cmd" value="_s-xclick" />
@@ -124,9 +124,8 @@ If you use proguard, you should include this line [ready-made in the [Example](h
   <img alt="" border="0" src="https://www.paypal.com/en_MN/i/scr/pixel.gif" width="1" height="1" />
 </form>
 
-### Developer
-
-- [Abdelrahman Saed](https://github.com/AbdOoSaed)
+# Video
+![Video](https://user-images.githubusercontent.com/33700292/84393190-913c2380-abfb-11ea-9e4e-1f1bd1fe2305.gif)
 
 
 # Support
@@ -136,3 +135,7 @@ If you use proguard, you should include this line [ready-made in the [Example](h
     </a>
     <br>    buy me a coffee by PayPal
 </p>
+
+### Developer
+
+- [Abdelrahman Saed](https://github.com/AbdOoSaed)
