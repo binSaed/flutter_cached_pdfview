@@ -1,6 +1,4 @@
 # flutter_cached_pdfview 
-https://pub.dev/packages/flutter_cache_manager
-https://pub.dev/packages/flutter_pdfview
 
 
 ![Pub Version](https://img.shields.io/pub/v/flutter_cached_pdfview?color=1&label=flutter_cached_pdfview)
@@ -13,136 +11,122 @@ https://pub.dev/packages/flutter_pdfview
     <a href="https://pub.dev/packages/flutter_cached_pdfview">
    <img src="https://firebasestorage.googleapis.com/v0/b/iam-jobs.appspot.com/o/flutter_cached_pdfview.png?alt=media&token=853143c0-250d-4647-840d-98f11d25dbb5">
     </a>
-    <br>A package to show pdf file, the first time will download the file and cache it, other time will get from the cache without the internet.
-    
-    var duration = maxAgeCacheObject ?? const Duration(days: 30);
-    var maxSize = maxNrOfCacheObjects ?? 200;
+    <br>A package to show Native PDF View for iOS and Android, support Open from a different resource like Path, Asset or Url and Cache it.
+   
+* Support Open Pdf From Path
+* Support Open Pdf From Asset
+* Support Open Pdf From URl and Cache it
 ---
+### 3. Setup
 
+#### iOS
+Opt-in to the embedded views preview by adding a boolean property to the app's `Info.plist` file
+with the key `io.flutter.embedded_views_preview` and the value `YES`.
 
-## Make your model
+[ready-made in the [Example](https://github.com/AbdOoSaed/flutter_cached_pdfview/tree/master/example)
 
-**BaseModelForHttpSolver** is a abstract class, your model should `implements` it.
-```dart
-class YourModel implements BaseModelForHttpSolver{}
+### 4. Import it
+
+Now in your Dart code, you can use:
+
+```
+import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 ```
 
-## Get data from your api
-**getFromApi** static method take `YourModel` and `your Api url` and return Future<YourModel>
- and it is have some option parameter `checkInternet`, `headers` for Api.
+## Options
 
+| Name               | Android | iOS |      Default      |
+| :----------------- | :-----: | :-: | :---------------: |
+| defaultPage        |   ✅    | ✅  |        `0`        |
+| onViewCreated      |   ✅    | ✅  |      `null`       |
+| onRender           |   ✅    | ✅  |      `null`       |
+| onPageChanged      |   ✅    | ✅  |      `null`       |
+| onError            |   ✅    | ✅  |      `null`       |
+| onPageError        |   ✅    | ❌  |      `null`       |
+| gestureRecognizers |   ✅    | ✅  |      `null`       |
+| filePath           |   ✅    | ✅  |                   |
+| fitPolicy          |   ✅    | ❌  | `FitPolicy.WIDTH` |
+| enableSwipe        |   ✅    | ✅  |      `true`       |
+| swipeHorizontal    |   ✅    | ✅  |      `false`      |
+| password           |   ✅    | ✅  |      `null`       |
+| nightMode          |   ✅    | ❌  |      `false`      |
+| password           |   ✅    | ✅  |      `null`       |
+| autoSpacing        |   ✅    | ✅  |      `true`       |
+| pageFling          |   ✅    | ✅  |      `true`       |
+| pageSnap           |   ✅    | ❌  |      `true`       |
+
+## Controller Options
+
+| Name           |     Description      | Parameters |     Return     |
+| :------------- | :------------------: | :--------: | :------------: |
+| getPageCount   | Get total page count |     -      | `Future<int>`  |
+| getCurrentPage |   Get current page   |     -      | `Future<int>`  |
+| setPage        |    Go to/Set page    | `int page` | `Future<bool>` |
+
+## [Example](https://github.com/AbdOoSaed/flutter_cached_pdfview/tree/master/example)
+####from Asset
 ```dart
-YourModel dataInModel = await HttpSolver.getFromApi(YourModel(), apiUrl, checkInternet: true);
+       PDF(
+        enableSwipe: true,
+        swipeHorizontal: true,
+        autoSpacing: false,
+        pageFling: false,
+        onError: (error) {
+          print(error.toString());
+        },
+        onPageError: (page, error) {
+          print('$page: ${error.toString()}');
+        },
+        onPageChanged: (int page, int total) {
+          print('page change: $page/$total');
+        },
+      ).fromAsset('assets/pdf/file-example.pdf'),
+
+```
+####cached From Url
+```dart
+      PDF(
+        swipeHorizontal: true,
+      ).cachedFromUrl('http://africau.edu/images/default/sample.pdf'),
+
 ```
 
-## Post to api
-**getFromApi** static method take `YourModel` and `your Api url` and return Future<YourModel>
- and it is have some option parameter `checkInternet`, `headers` for Api.
+# For production usage
 
-```dart
-YourModel dataInModel = await HttpSolver.postToApi(YourModel(), apiUrl,body: body , checkInternet: true);
+If you use proguard, you should include this line [ready-made in the [Example](https://github.com/AbdOoSaed/flutter_cached_pdfview/tree/master/example)].
+
+```
+-keep class com.shockwave.**
 ```
 
-## convert model to either
-**toEither()** extension on Future<yourModel> to handle all error and return `Either<Failure, YourModel>`.
+# Dependencies
 
-```dart
-Future<YourModel> dataInModel =  HttpSolver.getFromApi(YourModel(), apiUrl, checkInternet: true);
-Either<Failure, YourModel> modelOrError= dataInModel.toEither();
-```
+### Flutter
 
-## Using Either With UI
-```dart
-modelOrError.fold((failure) => Text("${failure.message}"), //if has error show Text with failure message
-(model) => Text(post.title)), //else show Text data
-```
+[flutter_pdfview](https://pub.dev/packages/flutter_pdfview)
 
-### Full [Example](https://github.com/AbdOoSaed/http_solver/tree/master/example/example_http_solver)
+[flutter_cache_manager](https://pub.dev/packages/flutter_cache_manager)
 
-```dart
-       import 'dart:collection';
-       import 'dart:convert';
-       import 'package:flutter/material.dart';
-       import 'package:http_solver/http_solver.dart';
+### Android
 
-       void main() => runApp(MyApp());
+[AndroidPdfViewer](https://github.com/barteksc/AndroidPdfViewer)
 
-       class MyApp extends StatelessWidget {
-         @override
-         Widget build(BuildContext context) {
-           return MaterialApp(
-             home: HomePage(),
-           );
-         }
-       }
+### iOS (only support> 11.0)
 
-       class HomePage extends StatefulWidget {
-         Either<Failure, Post> _data;
-         final url = "http://www.mocky.io/v2/5e3c29393000009c2e214bf8";
+[PDFKit](https://developer.apple.com/documentation/pdfkit)
 
-         @override
-         _HomePageState createState() => _HomePageState();
-       }
+# Support
 
-       class _HomePageState extends State<HomePage> {
-         @override
-         Widget build(BuildContext context) {
-           return Scaffold(
-               floatingActionButton:
-                   FloatingActionButton(onPressed: _getEither, child: Text('Get')),
-               body: Center(
-                 child: (widget._data == null)
-                     ? Text('No Data Yet')
-                     : widget._data.fold((failure) => Text("${failure.message}"),
-                         (post) => Text(post.title)),
-               ));
-         }
-
-         void _getEither() async {
-           widget._data =        await HttpSolver.getFromApi(Post(), widget.url, checkInternet: true).toEither();
-           setState(() {});
-         }
-       }
-
-       class Post implements BaseModelForHttpSolver {
-         final int id;
-         final int userId;
-         final String title;
-         final String body;
-
-         Post({
-           this.id,
-           this.userId,
-           this.title,
-           this.body,
-         });
-
-         Post fromJson(String source) {
-           Map<String, dynamic> jsonData = (json.decode(source));
-           if (jsonData == null) return null;
-           return Post(
-             id: jsonData['id'],
-             userId: jsonData['userId'],
-             title: jsonData['title'],
-             body: jsonData['body'],
-           );
-         }
-
-         @override
-         Map<String, dynamic> toJson() {
-           final Map<String, dynamic> data = HashMap<String, dynamic>();
-           data['id'] = this.id;
-           data['userId'] = this.userId;
-           data['title'] = this.title;
-           data['body'] = this.body;
-           return data;
-         }
-       }
-```
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+  <input type="hidden" name="cmd" value="_s-xclick" />
+  <input type="hidden" name="hosted_button_id" value="YDEYAAGBXDDK6" />
+  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+  <img alt="" border="0" src="https://www.paypal.com/en_MN/i/scr/pixel.gif" width="1" height="1" />
+</form>
 
 ### Developer
 
-- [AbdOo Saed](https://github.com/AbdOoSaed)
+- [Abdelrahman Saed](https://github.com/AbdOoSaed)
 
 
 # Support

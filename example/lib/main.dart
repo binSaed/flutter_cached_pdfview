@@ -63,7 +63,9 @@ class PDFViewerFromUrl extends StatelessWidget {
       appBar: AppBar(
         title: Text('PDF From Url'),
       ),
-      body: PDF().cachedFromUrl(url),
+      body: PDF(
+        swipeHorizontal: true,
+      ).cachedFromUrl(url),
     );
   }
 }
@@ -80,7 +82,21 @@ class PDFViewerFromAsset extends StatelessWidget {
       appBar: AppBar(
         title: Text('PDF From Asset'),
       ),
-      body: PDF().fromAsset(pdfAssetPath),
+      body: PDF(
+        enableSwipe: true,
+        swipeHorizontal: true,
+        autoSpacing: false,
+        pageFling: false,
+        onError: (error) {
+          print(error.toString());
+        },
+        onPageError: (page, error) {
+          print('$page: ${error.toString()}');
+        },
+        onPageChanged: (int page, int total) {
+          print('page change: $page/$total');
+        },
+      ).fromAsset(pdfAssetPath),
     );
   }
 }

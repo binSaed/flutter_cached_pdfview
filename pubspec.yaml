@@ -1,5 +1,5 @@
 name: flutter_cached_pdfview
-description: A package to show pdf file, the first time will download the file and cache it, other time will get from the cache without the internet.
+description: A package to show Native PDF View for iOS and Android, support Open from a different resource like Path, Asset or Url and Cache it.
 version: 0.1.0+2
 author: Abdelrahman Saed <abdoo.dev@gmail.com>
 homepage: https://github.com/AbdOoSaed/flutter_cached_pdfview

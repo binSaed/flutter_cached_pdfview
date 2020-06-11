@@ -6,10 +6,9 @@ import 'package:path_provider/path_provider.dart';
 Future<File> getPdfFromAsset(String assetPath) async {
 // To open from assets, you can copy them to the app storage folder, and then access them "locally"
   assert(assetPath.toLowerCase().endsWith('.pdf'),
-  throw '($assetPath) should endsWith ".pdf".');
+      throw '($assetPath) should endsWith ".pdf".');
   final regexp = RegExp(r'[\w-]+\.(pdf|PDF)');
   final pdfName = regexp.stringMatch(assetPath);
-
 
   final dir = await getApplicationDocumentsDirectory();
   var file = File("${dir.path}/$pdfName");
