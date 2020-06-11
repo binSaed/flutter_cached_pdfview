@@ -30,7 +30,7 @@ iOS (only support> 11.0) you need to add this line in your ios/Podfile
 
 ready-made in the [Example](https://github.com/AbdOoSaed/flutter_cached_pdfview/tree/master/example)
 
-### 4. Import it
+### Import it
 
 Now in your Dart code, you can use:
 
@@ -69,7 +69,7 @@ import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 | setPage        |    Go to/Set page    | `int page` | `Future<bool>` |
 
 ## [Example](https://github.com/AbdOoSaed/flutter_cached_pdfview/tree/master/example)
-####from Asset
+#### from Asset
 ```dart
        PDF(
         enableSwipe: true,
@@ -88,7 +88,7 @@ import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
       ).fromAsset('assets/pdf/file-example.pdf'),
 
 ```
-####cached From Url
+#### cached From Url
 ```dart
       PDF(
         swipeHorizontal: true,
