@@ -2,9 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 
-class PDFView {
-  final String url;
-
+class PDF {
   final bool enableSwipe;
   final bool swipeHorizontal;
   final String password;
@@ -22,8 +20,7 @@ class PDFView {
   final PageErrorCallback onPageError;
   final Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers;
 
-  const PDFView({
-    @required this.url,
+  const PDF({
     this.onViewCreated,
     this.onRender,
     this.onPageChanged,
