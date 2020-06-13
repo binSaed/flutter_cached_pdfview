@@ -7,6 +7,10 @@
 ![license](https://img.shields.io/github/license/AbdOoSaed/flutter_cached_pdfview)
 ![last-commit](https://img.shields.io/github/last-commit/AbdOoSaed/flutter_cached_pdfview)
 ![stars](https://img.shields.io/github/stars/AbdOoSaed/flutter_cached_pdfview?style=social)
+ <a href="https://www.buymeacoffee.com/abdoo">
+    <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
+  </a>
+
 <p align="center">
     <a href="https://pub.dev/packages/flutter_cached_pdfview">
    <img src="https://firebasestorage.googleapis.com/v0/b/iam-jobs.appspot.com/o/flutter_cached_pdfview.png?alt=media&token=853143c0-250d-4647-840d-98f11d25dbb5">
