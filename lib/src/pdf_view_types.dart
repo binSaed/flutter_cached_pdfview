@@ -13,7 +13,7 @@ extension PDFViewTypes on PDF {
     );
   }
 
-  Widget fromPath({@required String path, Key key}) {
+  Widget fromPath(String path, {Key key}) {
     return PDFViewWrapper(
       key: key,
       pdf: this,

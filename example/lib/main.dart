@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
@@ -71,32 +73,82 @@ class PDFViewerFromUrl extends StatelessWidget {
 }
 
 class PDFViewerFromAsset extends StatelessWidget {
+  PDFViewerFromAsset({Key key, @required this.pdfAssetPath}) : super(key: key);
   final String pdfAssetPath;
-
-  const PDFViewerFromAsset({Key key, @required this.pdfAssetPath})
-      : super(key: key);
+  final Completer<PDFViewController> _pdfViewController =
+      Completer<PDFViewController>();
+  final _pageCountController = StreamController<String>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('PDF From Asset'),
+        actions: <Widget>[
+          StreamBuilder<String>(
+              stream: _pageCountController.stream,
+              builder: (context, snapshot) {
+                if (snapshot.hasData)
+                  return Center(
+                    child: Container(
+                      padding: EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.blue[900],
+                      ),
+                      child: Text(snapshot.data),
+                    ),
+                  );
+                return SizedBox();
+              }),
+        ],
       ),
       body: PDF(
         enableSwipe: true,
         swipeHorizontal: true,
         autoSpacing: false,
         pageFling: false,
-        onError: (error) {
-          print(error.toString());
-        },
-        onPageError: (page, error) {
-          print('$page: ${error.toString()}');
-        },
-        onPageChanged: (int page, int total) {
-          print('page change: $page/$total');
-        },
+        onPageChanged: (current, total) =>
+            _pageCountController.add('${current + 1} - $total'),
+        onViewCreated: _pdfViewController.complete,
       ).fromAsset(pdfAssetPath),
+      floatingActionButton: FutureBuilder<PDFViewController>(
+        future: _pdfViewController.future,
+        builder: (context, AsyncSnapshot<PDFViewController> snapshot) {
+          if (snapshot.hasData) {
+            return Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                FloatingActionButton(
+                  heroTag: "-",
+                  child: Text("-"),
+                  onPressed: () async {
+                    final pdfController = snapshot.data;
+                    final currentPage =
+                        await pdfController.getCurrentPage() - 1;
+                    if (currentPage >= 0)
+                      await snapshot.data.setPage(currentPage);
+                  },
+                ),
+                FloatingActionButton(
+                  heroTag: "+",
+                  child: Text("+"),
+                  onPressed: () async {
+                    final pdfController = snapshot.data;
+                    final currentPage =
+                        await pdfController.getCurrentPage() + 1;
+                    final numberOfPages = await pdfController.getPageCount();
+                    if (numberOfPages > currentPage)
+                      await snapshot.data.setPage(currentPage);
+                  },
+                ),
+              ],
+            );
+          }
+          return SizedBox();
+        },
+      ),
     );
   }
 }

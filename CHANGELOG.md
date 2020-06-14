@@ -1,3 +1,5 @@
-## [0.1.0+2] - 07/06/2020.
+## [0.1.3] - 14/06/2020.
 
-* Update README.md.
+* Improve Example
+* Update Dependency
+* Update README.md
