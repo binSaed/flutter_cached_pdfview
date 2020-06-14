@@ -136,8 +136,7 @@ If you use proguard, you should include this line [ready-made in the [Example](h
 # Video
 ![Video](https://user-images.githubusercontent.com/33700292/84393190-913c2380-abfb-11ea-9e4e-1f1bd1fe2305.gif)
 
-![Video](https://user-images.githubusercontent.com/33700292/84597606-ec4b6180-ae19-11ea-9013-b3b5a977a87a.gif)
-
+ <img height=800 src="https://user-images.githubusercontent.com/33700292/84597606-ec4b6180-ae19-11ea-9013-b3b5a977a87a.gif">
 
 # Support
 <p align="center">
