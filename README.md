@@ -7,7 +7,7 @@
 ![license](https://img.shields.io/github/license/AbdOoSaed/flutter_cached_pdfview)
 ![last-commit](https://img.shields.io/github/last-commit/AbdOoSaed/flutter_cached_pdfview)
 ![stars](https://img.shields.io/github/stars/AbdOoSaed/flutter_cached_pdfview?style=social)
- <a href="https://www.buymeacoffee.com/abdoo">
+ <a href="https://www.buymeacoffee.com/abdoo" target="_blank">
     <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
   </a>
 
@@ -139,9 +139,14 @@ If you use proguard, you should include this line [ready-made in the [Example](h
  <img height=800 src="https://user-images.githubusercontent.com/33700292/84597606-ec4b6180-ae19-11ea-9013-b3b5a977a87a.gif">
 
 # Support
+
 <p align="center">
-    <a href="https://www.paypal.me/abdoosaed/5">
-   <img height=85 src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" >
+<a  href="https://www.buymeacoffee.com/abdoo" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/lato-blue.png" alt="Buy Me A Coffee" height=60 ></a>
+</p>
+
+<p align="center">
+    <a href="https://www.paypal.me/abdoosaed/5" target="_blank">
+   <img height=60 src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" >
     </a>
     <br>    buy me a coffee by PayPal
 </p>
