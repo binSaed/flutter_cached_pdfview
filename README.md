@@ -17,7 +17,7 @@
     </a>
     <br>A package to show Native PDF View for iOS and Android, support Open from a different resource like Path, Asset or Url and Cache it.
 
-### Support = [**[ Android ,  IOS  and  _WEB_(soon)](#video)**];
+### Support = [**[ Android ,  IOS  and  _WEB_(soon) ](#video)**];
 
 * Support Open Pdf From Path
 * Support Open Pdf From Asset
