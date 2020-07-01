@@ -1,3 +1,3 @@
-## [0.1.5] - 24/06/2020.
+## [0.1.6] - 1/07/2020.
 
-* Update Dependency
+* Update README.md
