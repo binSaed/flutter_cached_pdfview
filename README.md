@@ -16,7 +16,9 @@
    <img src="https://firebasestorage.googleapis.com/v0/b/iam-jobs.appspot.com/o/flutter_cached_pdfview.png?alt=media&token=853143c0-250d-4647-840d-98f11d25dbb5">
     </a>
     <br>A package to show Native PDF View for iOS and Android, support Open from a different resource like Path, Asset or Url and Cache it.
-   
+
+### Support = [**[ Android ,  IOS  and  _WEB_(soon)](#video)**];
+
 * Support Open Pdf From Path
 * Support Open Pdf From Asset
 * Support Open Pdf From URl and Cache it
@@ -134,9 +136,12 @@ If you use proguard, you should include this line [ready-made in the [Example](h
 </form>
 
 # Video
-![Video](https://user-images.githubusercontent.com/33700292/84393190-913c2380-abfb-11ea-9e4e-1f1bd1fe2305.gif)
+![IOS](https://user-images.githubusercontent.com/33700292/84393190-913c2380-abfb-11ea-9e4e-1f1bd1fe2305.gif)
 
  <img height=800 src="https://user-images.githubusercontent.com/33700292/84597606-ec4b6180-ae19-11ea-9013-b3b5a977a87a.gif">
+
+ ![WEB](https://user-images.githubusercontent.com/33700292/86278983-8ca2d380-bbd9-11ea-8861-7780fe9eee03.gif)
+
 
 # Support
 
