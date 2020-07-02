@@ -23,9 +23,6 @@ if [ -z "${PUB_DEV_PUBLISH_EXPIRATION}" ]; then
   exit 1
 fi
 
-ls flutter/.pub-cache/
-ls $FLUTTER_HOME/
-
 # Create credentials.json file.
 cat <<EOF > $FLUTTER_HOME/.pub-cache/credentials.json
 {
