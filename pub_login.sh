@@ -26,7 +26,7 @@ fi
 echo $HOME
 
 # Create credentials.json file.
-cat <<EOF > /home/.pub-cache/credentials.json
+cat <<EOF > .pub-cache/credentials.json
 {
   "accessToken":"${PUB_DEV_PUBLISH_ACCESS_TOKEN}",
   "refreshToken":"${PUB_DEV_PUBLISH_REFRESH_TOKEN}",
