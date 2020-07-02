@@ -32,4 +32,4 @@ jobs:
       - name: Check Publish Warnings
         run: pub publish --dry-run
       - name: Publish Package
-        run: pub publish -f
+        run: flutter pub publish -f
