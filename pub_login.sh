@@ -23,6 +23,9 @@ if [ -z "${PUB_DEV_PUBLISH_EXPIRATION}" ]; then
   exit 1
 fi
 
+ls $HOME/.pub-cache/
+ls $HOME/
+
 # Create credentials.json file.
 cat <<EOF > $HOME/.pub-cache/credentials.json
 {
