@@ -21,6 +21,10 @@ jobs:
         run: flutter analyze
       - name: Run tests
         run: flutter test
+      - name: flutter format lib
+        run: flutter format lib/** --set-exit-if-changed
+      - name: flutter format example/lib
+        run: flutter format example/lib/** --set-exit-if-changed
       - name: Setup Pub Credentials
         shell: bash
         env:
