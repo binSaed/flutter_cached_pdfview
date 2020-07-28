@@ -1,4 +1,5 @@
 #https://birjuvachhani.dev/posts/publish-your-flutter-package-using-github-actions/
+#https://github.com/k-paxian/dart-package-publisher/blob/master/entrypoint.sh
 name: Dart CI
 
 on:
