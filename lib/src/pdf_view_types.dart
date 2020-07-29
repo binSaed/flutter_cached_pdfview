@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cached_pdfview/src/asset_pdf_view.dart';
 import 'package:flutter_cached_pdfview/src/cached_pdf_view.dart';
-import 'package:flutter_cached_pdfview/src/pdf_view.dart';
+import 'package:flutter_cached_pdfview/src/pdf.dart';
 import 'package:flutter_cached_pdfview/src/pdf_view_wrapper.dart';
 
 extension PDFViewTypes on PDF {

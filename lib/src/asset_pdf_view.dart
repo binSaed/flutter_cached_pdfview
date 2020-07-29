@@ -7,7 +7,10 @@ import 'package:flutter_cached_pdfview/src/pdf_view_wrapper.dart';
 import 'package:flutter_cached_pdfview/src/show_progress.dart';
 
 class AssetPDFView extends StatelessWidget {
+  /// assetPath like 'asset/example.pdf'
   final String assetPath;
+
+  /// Pdf Model
   final PDF pdf;
 
   const AssetPDFView({Key key, this.assetPath, this.pdf}) : super(key: key);

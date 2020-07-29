@@ -3,7 +3,10 @@ import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 
 class PDFViewWrapper extends StatelessWidget {
+  /// path for pdf file in phone storage
   final String path;
+
+  /// Pdf Model
   final PDF pdf;
 
   const PDFViewWrapper({Key key, @required this.pdf, @required this.path})

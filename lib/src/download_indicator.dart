@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cached_pdfview/src/show_progress.dart';
 
 class DownloadIndicator extends StatelessWidget {
+  /// progress for Download
   final double progress;
 
   const DownloadIndicator({Key key, this.progress}) : super(key: key);

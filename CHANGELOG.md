@@ -1,3 +1,4 @@
-## [0.1.7] - 2/07/2020.
+## [0.1.8] - 30/07/2020.
 
-* Test CI-CD
+* Update Dependency
+* add documentation

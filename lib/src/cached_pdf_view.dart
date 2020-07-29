@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_cached_pdfview/src/download_indicator.dart';
-import 'package:flutter_cached_pdfview/src/pdf_view.dart';
+import 'package:flutter_cached_pdfview/src/pdf.dart';
 import 'package:flutter_cached_pdfview/src/pdf_view_wrapper.dart';
 
 class CachedPDFView extends StatelessWidget {
+  /// pdf url like 'www.test.example,pdf'
   final String url;
 
+  /// Pdf Model
   final PDF pdf;
 
   const CachedPDFView({
