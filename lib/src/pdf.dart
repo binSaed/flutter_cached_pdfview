@@ -20,6 +20,8 @@ class PDF {
 
   /// If not null invoked once the web view is created.
   final PDFViewCreatedCallback onViewCreated;
+
+  /// If not null invoked once the web view is created.
   final RenderCallback onRender;
   final PageChangedCallback onPageChanged;
   final ErrorCallback onError;

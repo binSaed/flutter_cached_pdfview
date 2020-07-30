@@ -5,11 +5,16 @@ import 'package:flutter_cached_pdfview/src/pdf.dart';
 import 'package:flutter_cached_pdfview/src/pdf_view_wrapper.dart';
 
 extension PDFViewTypes on PDF {
-  Widget cachedFromUrl(String url, {Key key}) {
+  Widget cachedFromUrl(String url,
+      {Key key,
+      PlaceholderWidget placeholder,
+      DownloadingErrorWidget errorWidget}) {
     return CachedPDFView(
       key: key,
       pdf: this,
       url: url,
+      placeholder: placeholder,
+      errorWidget: errorWidget,
     );
   }
 
@@ -21,11 +26,13 @@ extension PDFViewTypes on PDF {
     );
   }
 
-  Widget fromAsset(String pathOfAsset, {Key key}) {
+  Widget fromAsset(String pathOfAsset,
+      {Key key, AssetErrorWidget errorWidget}) {
     return AssetPDFView(
       key: key,
       pdf: this,
       assetPath: pathOfAsset,
+      errorWidget: errorWidget,
     );
   }
 }

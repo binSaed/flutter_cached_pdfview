@@ -61,9 +61,11 @@ class PDFViewerFromUrl extends StatelessWidget {
       appBar: AppBar(
         title: Text('PDF From Url'),
       ),
-      body: PDF(
-        swipeHorizontal: true,
-      ).cachedFromUrl(url),
+      body: PDF().cachedFromUrl(
+        url,
+        placeholder: (progress) => Center(child: Text('$progress %')),
+        errorWidget: (error) => Center(child: Text(error.toString())),
+      ),
     );
   }
 }
@@ -106,12 +108,20 @@ class PDFViewerFromAsset extends StatelessWidget {
         pageFling: false,
         onPageChanged: (current, total) =>
             _pageCountController.add('${current + 1} - $total'),
-        onViewCreated: _pdfViewController.complete,
-      ).fromAsset(pdfAssetPath),
+        onViewCreated: (pdfViewController) async {
+          _pdfViewController.complete(pdfViewController);
+          final currentPage = await pdfViewController.getCurrentPage();
+          final pageCount = await pdfViewController.getPageCount();
+          _pageCountController.add('${currentPage + 1} - $pageCount');
+        },
+      ).fromAsset(
+        pdfAssetPath,
+        errorWidget: (error) => Center(child: Text(error.toString())),
+      ),
       floatingActionButton: FutureBuilder<PDFViewController>(
         future: _pdfViewController.future,
         builder: (context, AsyncSnapshot<PDFViewController> snapshot) {
-          if (snapshot.hasData) {
+          if (snapshot.hasData && snapshot.data != null) {
             return Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
