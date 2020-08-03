@@ -5,6 +5,7 @@ import 'package:flutter_pdfview/flutter_pdfview.dart';
 class PDF {
   final bool enableSwipe;
   final bool swipeHorizontal;
+  final bool preventLinkNavigation;
 
   /// if pdf is protected u should provide a password
   final String password;
@@ -26,6 +27,7 @@ class PDF {
   final PageChangedCallback onPageChanged;
   final ErrorCallback onError;
   final PageErrorCallback onPageError;
+  final LinkHandlerCallback onLinkHandler;
 
   /// Which gestures should be consumed by the pdf view.
   ///
@@ -39,6 +41,7 @@ class PDF {
   final Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers;
 
   const PDF({
+    this.onLinkHandler,
     this.onViewCreated,
     this.onRender,
     this.onPageChanged,
@@ -55,5 +58,6 @@ class PDF {
     this.fitEachPage = true,
     this.defaultPage = 0,
     this.fitPolicy = FitPolicy.WIDTH,
+    this.preventLinkNavigation,
   });
 }
