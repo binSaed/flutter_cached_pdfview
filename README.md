@@ -47,25 +47,27 @@ import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 
 ## Options
 
-| Name               | Android | iOS |      Default      |
-| :----------------- | :-----: | :-: | :---------------: |
-| defaultPage        |   ✅    | ✅  |        `0`        |
-| onViewCreated      |   ✅    | ✅  |      `null`       |
-| onRender           |   ✅    | ✅  |      `null`       |
-| onPageChanged      |   ✅    | ✅  |      `null`       |
-| onError            |   ✅    | ✅  |      `null`       |
-| onPageError        |   ✅    | ❌  |      `null`       |
-| gestureRecognizers |   ✅    | ✅  |      `null`       |
-| filePath           |   ✅    | ✅  |                   |
-| fitPolicy          |   ✅    | ❌  | `FitPolicy.WIDTH` |
-| enableSwipe        |   ✅    | ✅  |      `true`       |
-| swipeHorizontal    |   ✅    | ✅  |      `false`      |
-| password           |   ✅    | ✅  |      `null`       |
-| nightMode          |   ✅    | ❌  |      `false`      |
-| password           |   ✅    | ✅  |      `null`       |
-| autoSpacing        |   ✅    | ✅  |      `true`       |
-| pageFling          |   ✅    | ✅  |      `true`       |
-| pageSnap           |   ✅    | ❌  |      `true`       |
+| Name                  | Android | iOS |      Default      |
+| :-------------------- | :-----: | :-: | :---------------: |
+| defaultPage           |   ✅    | ✅  |        `0`        |
+| onViewCreated         |   ✅    | ✅  |      `null`       |
+| onRender              |   ✅    | ✅  |      `null`       |
+| onPageChanged         |   ✅    | ✅  |      `null`       |
+| onError               |   ✅    | ✅  |      `null`       |
+| onPageError           |   ✅    | ❌  |      `null`       |
+| onLinkHandle          |   ✅    | ✅  |      `null`       |
+| gestureRecognizers    |   ✅    | ✅  |      `null`       |
+| filePath              |   ✅    | ✅  |                   |
+| fitPolicy             |   ✅    | ❌  | `FitPolicy.WIDTH` |
+| enableSwipe           |   ✅    | ✅  |      `true`       |
+| swipeHorizontal       |   ✅    | ✅  |      `false`      |
+| password              |   ✅    | ✅  |      `null`       |
+| nightMode             |   ✅    | ❌  |      `false`      |
+| password              |   ✅    | ✅  |      `null`       |
+| autoSpacing           |   ✅    | ✅  |      `true`       |
+| pageFling             |   ✅    | ✅  |      `true`       |
+| pageSnap              |   ✅    | ❌  |      `true`       |
+| preventLinkNavigation |   ✅    | ✅  |      `false`      |
 
 ## Controller Options
 

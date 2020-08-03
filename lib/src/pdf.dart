@@ -3,12 +3,17 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 
 class PDF {
+  ///enable or disable Swipe
   final bool enableSwipe;
+
+  ///swipeHorizontal or vertical
   final bool swipeHorizontal;
   final bool preventLinkNavigation;
 
   /// if pdf is protected u should provide a password
   final String password;
+
+  ///set nightMode true, false
   final bool nightMode;
   final bool autoSpacing;
   final bool pageFling;
@@ -25,6 +30,8 @@ class PDF {
   /// If not null invoked once the web view is created.
   final RenderCallback onRender;
   final PageChangedCallback onPageChanged;
+
+  /// return dynamic error
   final ErrorCallback onError;
   final PageErrorCallback onPageError;
   final LinkHandlerCallback onLinkHandler;
