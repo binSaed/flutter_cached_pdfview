@@ -16,6 +16,7 @@ class PDFViewWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return PDFView(
       filePath: path,
+      onLinkHandler: pdf.onLinkHandler,
       onViewCreated: pdf.onViewCreated,
       onRender: pdf.onRender,
       onPageChanged: pdf.onPageChanged,
