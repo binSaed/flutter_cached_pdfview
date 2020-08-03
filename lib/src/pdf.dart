@@ -26,6 +26,7 @@ class PDF {
   final PageChangedCallback onPageChanged;
   final ErrorCallback onError;
   final PageErrorCallback onPageError;
+  final LinkHandlerCallback onLinkHandler;
 
   /// Which gestures should be consumed by the pdf view.
   ///
@@ -39,6 +40,7 @@ class PDF {
   final Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers;
 
   const PDF({
+    this.onLinkHandler,
     this.onViewCreated,
     this.onRender,
     this.onPageChanged,
