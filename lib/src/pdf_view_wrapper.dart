@@ -33,6 +33,7 @@ class PDFViewWrapper extends StatelessWidget {
       fitEachPage: pdf.fitEachPage,
       defaultPage: pdf.defaultPage,
       fitPolicy: pdf.fitPolicy,
+      preventLinkNavigation: pdf.preventLinkNavigation,
     );
   }
 }
