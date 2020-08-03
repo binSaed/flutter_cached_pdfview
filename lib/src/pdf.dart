@@ -5,6 +5,7 @@ import 'package:flutter_pdfview/flutter_pdfview.dart';
 class PDF {
   final bool enableSwipe;
   final bool swipeHorizontal;
+  final bool preventLinkNavigation;
 
   /// if pdf is protected u should provide a password
   final String password;
@@ -57,5 +58,6 @@ class PDF {
     this.fitEachPage = true,
     this.defaultPage = 0,
     this.fitPolicy = FitPolicy.WIDTH,
+    this.preventLinkNavigation,
   });
 }
