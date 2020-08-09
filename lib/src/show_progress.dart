@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+typedef Widget LoadingWidget();
+
 class ShowProgress extends StatelessWidget {
   /// progress optional only worked with android
   final double progress;
@@ -20,3 +22,5 @@ class ShowProgress extends StatelessWidget {
     );
   }
 }
+
+Widget loadingWidgetHolder() => ShowProgress();

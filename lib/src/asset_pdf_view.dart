@@ -18,7 +18,11 @@ class AssetPDFView extends StatelessWidget {
   /// Widget displayed while the target [assetPath] failed to get from asset.
   final AssetErrorWidget errorWidget;
 
-  const AssetPDFView({Key key, this.assetPath, this.pdf, this.errorWidget})
+  /// Widget displayed while [assetPath] copying to local storage
+  final LoadingWidget loadingWidget;
+
+  const AssetPDFView(
+      {Key key, this.assetPath, this.pdf, this.errorWidget, this.loadingWidget})
       : super(key: key);
 
   @override
@@ -30,17 +34,10 @@ class AssetPDFView extends StatelessWidget {
           return PDFViewWrapper(pdf: pdf, path: snapshot.data.path);
 
         if (snapshot.hasData && snapshot.data == null || snapshot.hasError) {
-          return errorWidget != null
-              ? errorWidget(snapshot.error)
-              : Center(
-                  child: Text(
-                    'Exception Throw When Open From Asset\n' +
-                        snapshot.error.toString(),
-                  ),
-                );
+          return errorWidget(snapshot.error?.toString());
         }
 
-        return ShowProgress();
+        return loadingWidget();
       },
     );
   }

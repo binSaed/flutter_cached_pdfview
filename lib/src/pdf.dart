@@ -65,6 +65,6 @@ class PDF {
     this.fitEachPage = true,
     this.defaultPage = 0,
     this.fitPolicy = FitPolicy.WIDTH,
-    this.preventLinkNavigation,
+    this.preventLinkNavigation = false,
   });
 }

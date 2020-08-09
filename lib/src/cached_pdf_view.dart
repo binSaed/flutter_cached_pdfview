@@ -6,7 +6,8 @@ import 'package:flutter_cached_pdfview/src/download_indicator.dart';
 import 'package:flutter_cached_pdfview/src/pdf.dart';
 import 'package:flutter_cached_pdfview/src/pdf_view_wrapper.dart';
 
-typedef Widget PlaceholderWidget(double progress);
+import 'download_indicator.dart';
+
 typedef Widget DownloadingErrorWidget(dynamic error);
 
 class CachedPDFView extends StatelessWidget {
@@ -38,22 +39,12 @@ class CachedPDFView extends StatelessWidget {
         final loading = !snapshot.hasData || snapshot.data is DownloadProgress;
 
         if (snapshot.hasError) {
-          return errorWidget != null
-              ? errorWidget(snapshot.error)
-              : Center(
-                  child: const Text(
-                    'Error\nNo Internet And Not Cashed Yet!',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 16),
-                  ),
-                );
+          return errorWidget(snapshot.error);
         } else if (loading) {
           final progress =
               (((snapshot.data as DownloadProgress)?.progress ?? 0) * 100)
                   .roundToDouble();
-          return placeholder != null
-              ? placeholder(progress)
-              : DownloadIndicator(progress: progress);
+          return placeholder(progress);
         } else
           return PDFViewWrapper(
             path: (snapshot.data as FileInfo).file.path,

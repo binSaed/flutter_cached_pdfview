@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/services.dart';
@@ -20,6 +21,6 @@ Future<File> getPdfFromAsset(String assetPath) async {
     }
     return file;
   } catch (e) {
-    throw Exception("Error opening asset file" + e);
+    throw Exception("Error opening asset file: " + e.toString());
   }
 }

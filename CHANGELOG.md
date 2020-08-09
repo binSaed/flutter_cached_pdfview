@@ -1,3 +1,4 @@
-## [0.2.0] - 03/08/2020.
+## [0.2.1] - 09/08/2020.
 
-* add new parameter [onLinkHandler, preventLinkNavigation]
+* fix issue #9
+* improve code quality
