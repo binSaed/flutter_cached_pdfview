@@ -23,18 +23,23 @@ class CachedPDFView extends StatelessWidget {
   /// Widget displayed while the target [url] failed Downloading.
   final DownloadingErrorWidget errorWidget;
 
+  /// [headers] can be used for example for authentication.
+  final Map<String, String> headers;
+
   const CachedPDFView({
     Key key,
     @required this.url,
     this.pdf,
     this.placeholder,
     this.errorWidget,
+    this.headers,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<FileResponse>(
-      stream: DefaultCacheManager().getFileStream(url, withProgress: true),
+      stream: DefaultCacheManager()
+          .getFileStream(url, withProgress: true, headers: headers),
       builder: (context, snapshot) {
         final loading = !snapshot.hasData || snapshot.data is DownloadProgress;
 

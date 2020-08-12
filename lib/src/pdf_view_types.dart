@@ -12,13 +12,15 @@ extension PDFViewTypes on PDF {
   Widget cachedFromUrl(String url,
       {Key key,
       PlaceholderWidget placeholder = downloadIndicator,
-      DownloadingErrorWidget errorWidget = errorWidgetHolder}) {
+      DownloadingErrorWidget errorWidget = errorWidgetHolder,
+      Map<String, String> headers}) {
     return CachedPDFView(
       key: key,
       pdf: this,
       url: url,
       placeholder: placeholder,
       errorWidget: errorWidget,
+      headers: headers,
     );
   }
 

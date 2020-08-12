@@ -1,3 +1,3 @@
-## [0.2.2] - 09/08/2020.
+## [0.2.3] - 12/08/2020.
 
-* remove unneeded code
+* fix issue #10 add headers to cachedFromUrl

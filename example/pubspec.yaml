@@ -3,7 +3,7 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -16,11 +16,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 flutter:
-
   assets:
     - assets/pdf/
   uses-material-design: true
-
-
-
-
