@@ -16,7 +16,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('flutter_cached_pdfview Demo'),
+        title: const Text('flutter_cached_pdfview Demo'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -25,24 +25,35 @@ class MyHomePage extends StatelessWidget {
           FlatButton(
             onPressed: () => Navigator.push(
               context,
-              MaterialPageRoute(
-                builder: (context) => PDFViewerFromUrl(
+              MaterialPageRoute<dynamic>(
+                builder: (_) => const PDFViewerFromUrl(
                   url: 'http://africau.edu/images/default/sample.pdf',
                 ),
               ),
             ),
-            child: Text('Cashed PDF From Url'),
+            child: const Text('PDF From Url'),
           ),
           FlatButton(
             onPressed: () => Navigator.push(
               context,
-              MaterialPageRoute(
-                builder: (context) => PDFViewerFromAsset(
+              MaterialPageRoute<dynamic>(
+                builder: (_) => const PDFViewerCachedFromUrl(
+                  url: 'http://africau.edu/images/default/sample.pdf',
+                ),
+              ),
+            ),
+            child: const Text('Cashed PDF From Url'),
+          ),
+          FlatButton(
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute<dynamic>(
+                builder: (_) => PDFViewerFromAsset(
                   pdfAssetPath: 'assets/pdf/file-example.pdf',
                 ),
               ),
             ),
-            child: Text('PDF From Asset'),
+            child: const Text('PDF From Asset'),
           ),
         ],
       ),
@@ -51,20 +62,40 @@ class MyHomePage extends StatelessWidget {
 }
 
 class PDFViewerFromUrl extends StatelessWidget {
-  final String url;
-
   const PDFViewerFromUrl({Key key, @required this.url}) : super(key: key);
+
+  final String url;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('PDF From Url'),
+        title: const Text('PDF From Url'),
       ),
-      body: PDF().cachedFromUrl(
+      body: const PDF().fromUrl(
         url,
-        placeholder: (progress) => Center(child: Text('$progress %')),
-        errorWidget: (error) => Center(child: Text(error.toString())),
+        placeholder: (double progress) => Center(child: Text('$progress %')),
+        errorWidget: (dynamic error) => Center(child: Text(error.toString())),
+      ),
+    );
+  }
+}
+
+class PDFViewerCachedFromUrl extends StatelessWidget {
+  const PDFViewerCachedFromUrl({Key key, @required this.url}) : super(key: key);
+
+  final String url;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Cached PDF From Url'),
+      ),
+      body: const PDF().cachedFromUrl(
+        url,
+        placeholder: (double progress) => Center(child: Text('$progress %')),
+        errorWidget: (dynamic error) => Center(child: Text(error.toString())),
       ),
     );
   }
@@ -75,21 +106,22 @@ class PDFViewerFromAsset extends StatelessWidget {
   final String pdfAssetPath;
   final Completer<PDFViewController> _pdfViewController =
       Completer<PDFViewController>();
-  final _pageCountController = StreamController<String>();
+  final StreamController<String> _pageCountController =
+      StreamController<String>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('PDF From Asset'),
+        title: const Text('PDF From Asset'),
         actions: <Widget>[
           StreamBuilder<String>(
               stream: _pageCountController.stream,
-              builder: (context, snapshot) {
-                if (snapshot.hasData)
+              builder: (_, AsyncSnapshot<String> snapshot) {
+                if (snapshot.hasData) {
                   return Center(
                     child: Container(
-                      padding: EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.blue[900],
@@ -97,7 +129,8 @@ class PDFViewerFromAsset extends StatelessWidget {
                       child: Text(snapshot.data),
                     ),
                   );
-                return SizedBox();
+                }
+                return const SizedBox();
               }),
         ],
       ),
@@ -106,53 +139,56 @@ class PDFViewerFromAsset extends StatelessWidget {
         swipeHorizontal: true,
         autoSpacing: false,
         pageFling: false,
-        onPageChanged: (current, total) =>
+        onPageChanged: (int current, int total) =>
             _pageCountController.add('${current + 1} - $total'),
-        onViewCreated: (pdfViewController) async {
+        onViewCreated: (PDFViewController pdfViewController) async {
           _pdfViewController.complete(pdfViewController);
-          final currentPage = await pdfViewController.getCurrentPage();
-          final pageCount = await pdfViewController.getPageCount();
+          final int currentPage = await pdfViewController.getCurrentPage();
+          final int pageCount = await pdfViewController.getPageCount();
           _pageCountController.add('${currentPage + 1} - $pageCount');
         },
       ).fromAsset(
         pdfAssetPath,
-        errorWidget: (error) => Center(child: Text(error.toString())),
+        errorWidget: (dynamic error) => Center(child: Text(error.toString())),
       ),
       floatingActionButton: FutureBuilder<PDFViewController>(
         future: _pdfViewController.future,
-        builder: (context, AsyncSnapshot<PDFViewController> snapshot) {
+        builder: (_, AsyncSnapshot<PDFViewController> snapshot) {
           if (snapshot.hasData && snapshot.data != null) {
             return Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 FloatingActionButton(
-                  heroTag: "-",
-                  child: Text("-"),
+                  heroTag: '-',
+                  child: const Text('-'),
                   onPressed: () async {
-                    final pdfController = snapshot.data;
-                    final currentPage =
+                    final PDFViewController pdfController = snapshot.data;
+                    final int currentPage =
                         await pdfController.getCurrentPage() - 1;
-                    if (currentPage >= 0)
-                      await snapshot.data.setPage(currentPage);
+                    if (currentPage >= 0) {
+                      await pdfController.setPage(currentPage);
+                    }
                   },
                 ),
                 FloatingActionButton(
-                  heroTag: "+",
-                  child: Text("+"),
+                  heroTag: '+',
+                  child: const Text('+'),
                   onPressed: () async {
-                    final pdfController = snapshot.data;
-                    final currentPage =
-                        await pdfController.getCurrentPage() + 1;
-                    final numberOfPages = await pdfController.getPageCount();
-                    if (numberOfPages > currentPage)
-                      await snapshot.data.setPage(currentPage);
+                    final PDFViewController pdfController = snapshot.data;
+                    final int currentPage =
+                        await pdfController.getCurrentPage();
+                    final int numberOfPages =
+                        await pdfController.getPageCount();
+                    if (numberOfPages > currentPage + 1) {
+                      await pdfController.setPage(2);
+                    }
                   },
                 ),
               ],
             );
           }
-          return SizedBox();
+          return const SizedBox();
         },
       ),
     );

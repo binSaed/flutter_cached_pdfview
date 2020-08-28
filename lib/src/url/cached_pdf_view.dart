@@ -2,15 +2,28 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:flutter_cached_pdfview/src/download_indicator.dart';
 import 'package:flutter_cached_pdfview/src/pdf.dart';
 import 'package:flutter_cached_pdfview/src/pdf_view_wrapper.dart';
+import 'package:flutter_cached_pdfview/src/utils/download_indicator.dart';
 
-import 'download_indicator.dart';
+import '../utils/download_indicator.dart';
+import 'custom_cache_manger.dart';
 
-typedef Widget DownloadingErrorWidget(dynamic error);
+typedef DownloadingErrorWidget = Widget Function(dynamic error);
 
 class CachedPDFView extends StatelessWidget {
+  const CachedPDFView(
+    this._cacheKey, {
+    Key key,
+    @required this.url,
+    this.pdf,
+    this.placeholder,
+    this.errorWidget,
+    this.headers,
+    this.maxAgeCacheObject,
+    this.maxNrOfCacheObjects,
+  }) : super(key: key);
+
   /// pdf url like 'www.test.example,pdf'
   final String url;
 
@@ -26,36 +39,40 @@ class CachedPDFView extends StatelessWidget {
   /// [headers] can be used for example for authentication.
   final Map<String, String> headers;
 
-  const CachedPDFView({
-    Key key,
-    @required this.url,
-    this.pdf,
-    this.placeholder,
-    this.errorWidget,
-    this.headers,
-  }) : super(key: key);
+  /// Files are removed when they haven't been used for longer than [maxAgeCacheObject]
+  final Duration maxAgeCacheObject;
+
+  /// or when this cache has grown too big. When the cache is larger than [maxNrOfCacheObjects]
+  /// files the files that haven't been used longest will be removed.
+  final int maxNrOfCacheObjects;
+  final String _cacheKey;
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<FileResponse>(
-      stream: DefaultCacheManager()
-          .getFileStream(url, withProgress: true, headers: headers),
-      builder: (context, snapshot) {
-        final loading = !snapshot.hasData || snapshot.data is DownloadProgress;
+      stream: CustomCacheManger(
+        key: _cacheKey,
+        maxAgeCacheObject: maxAgeCacheObject,
+        maxNrOfCacheObjects: maxNrOfCacheObjects,
+      ).getFileStream(url, withProgress: true, headers: headers),
+      builder: (_, AsyncSnapshot<FileResponse> snapshot) {
+        final bool loading =
+            !snapshot.hasData || snapshot.data is DownloadProgress;
 
         if (snapshot.hasError) {
           return errorWidget(snapshot.error);
         } else if (loading) {
-          final progress =
+          final double progress =
               (((snapshot.data as DownloadProgress)?.progress ?? 0) * 100)
                   .roundToDouble();
           return placeholder(progress);
-        } else
+        } else {
           return PDFViewWrapper(
             path: (snapshot.data as FileInfo).file.path,
             pdf: pdf,
             key: key,
           );
+        }
       },
     );
   }

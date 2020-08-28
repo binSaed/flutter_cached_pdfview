@@ -1,26 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cached_pdfview/src/asset_pdf_view.dart';
-import 'package:flutter_cached_pdfview/src/cached_pdf_view.dart';
-import 'package:flutter_cached_pdfview/src/error_widget.dart';
+import 'package:flutter_cached_pdfview/src/asset/asset_pdf_view.dart';
 import 'package:flutter_cached_pdfview/src/pdf.dart';
 import 'package:flutter_cached_pdfview/src/pdf_view_wrapper.dart';
-import 'package:flutter_cached_pdfview/src/show_progress.dart';
+import 'package:flutter_cached_pdfview/src/url/cached_pdf_view.dart';
+import 'package:flutter_cached_pdfview/src/utils/error_widget.dart';
+import 'package:flutter_cached_pdfview/src/utils/show_progress.dart';
 
-import 'download_indicator.dart';
+import 'utils/download_indicator.dart';
 
 extension PDFViewTypes on PDF {
-  Widget cachedFromUrl(String url,
-      {Key key,
-      PlaceholderWidget placeholder = downloadIndicator,
-      DownloadingErrorWidget errorWidget = errorWidgetHolder,
-      Map<String, String> headers}) {
+  Widget fromUrl(
+    String url, {
+    Key key,
+    PlaceholderWidget placeholder = downloadIndicator,
+    DownloadingErrorWidget errorWidget = errorWidgetHolder,
+    Map<String, String> headers,
+  }) {
     return CachedPDFView(
+      'without_cache',
       key: key,
       pdf: this,
       url: url,
       placeholder: placeholder,
       errorWidget: errorWidget,
       headers: headers,
+      maxAgeCacheObject: const Duration(microseconds: 0),
+      maxNrOfCacheObjects: 0,
+    );
+  }
+
+  Widget cachedFromUrl(
+    String url, {
+    Key key,
+    PlaceholderWidget placeholder = downloadIndicator,
+    DownloadingErrorWidget errorWidget = errorWidgetHolder,
+    Map<String, String> headers,
+    Duration maxAgeCacheObject = const Duration(days: 10),
+    int maxNrOfCacheObjects = 100,
+  }) {
+    return CachedPDFView(
+      'libCachedPdfView',
+      key: key,
+      pdf: this,
+      url: url,
+      placeholder: placeholder,
+      errorWidget: errorWidget,
+      headers: headers,
+      maxAgeCacheObject: maxAgeCacheObject,
+      maxNrOfCacheObjects: maxNrOfCacheObjects,
     );
   }
 

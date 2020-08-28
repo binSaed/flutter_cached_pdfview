@@ -3,6 +3,27 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 
 class PDF {
+  const PDF({
+    this.onViewCreated,
+    this.onRender,
+    this.onPageChanged,
+    this.onError,
+    this.onPageError,
+    this.onLinkHandler,
+    this.gestureRecognizers,
+    this.enableSwipe = true,
+    this.swipeHorizontal = false,
+    this.password,
+    this.nightMode = false,
+    this.autoSpacing = true,
+    this.pageFling = true,
+    this.pageSnap = true,
+    this.fitEachPage = true,
+    this.defaultPage = 0,
+    this.fitPolicy = FitPolicy.WIDTH,
+    this.preventLinkNavigation = false,
+  });
+
   ///enable or disable Swipe
   final bool enableSwipe;
 
@@ -46,25 +67,4 @@ class PDF {
   /// When this set is empty or null, the pdf view will only handle pointer events for gestures that
   /// were not claimed by any other gesture recognizer.
   final Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers;
-
-  const PDF({
-    this.onLinkHandler,
-    this.onViewCreated,
-    this.onRender,
-    this.onPageChanged,
-    this.onError,
-    this.onPageError,
-    this.gestureRecognizers,
-    this.enableSwipe = true,
-    this.swipeHorizontal = false,
-    this.password,
-    this.nightMode = false,
-    this.autoSpacing = true,
-    this.pageFling = true,
-    this.pageSnap = true,
-    this.fitEachPage = true,
-    this.defaultPage = 0,
-    this.fitPolicy = FitPolicy.WIDTH,
-    this.preventLinkNavigation = false,
-  });
 }

@@ -1,3 +1,4 @@
-## [0.2.3] - 12/08/2020.
+## [0.2.3+1] - 28/08/2020.
 
-* fix issue #10 add headers to cachedFromUrl
+* update depends
+* add open pdf from url

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-typedef Widget ErrorWidget(dynamic error);
+typedef ErrorWidget = Widget Function(dynamic error);
 
 Widget errorWidgetHolder(dynamic error) => Center(
       child: Center(
         child: Text(
           error.toString(),
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 16),
+          style: const TextStyle(fontSize: 16),
         ),
       ),
     );

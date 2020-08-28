@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cached_pdfview/src/show_progress.dart';
+import 'package:flutter_cached_pdfview/src/utils/show_progress.dart';
 
-typedef Widget PlaceholderWidget(double progress);
+typedef PlaceholderWidget = Widget Function(double progress);
 
 class _DownloadIndicator extends StatelessWidget {
+  const _DownloadIndicator({Key key, this.progress}) : super(key: key);
+
   /// progress for Download
   final double progress;
-
-  const _DownloadIndicator({Key key, this.progress}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +28,5 @@ class _DownloadIndicator extends StatelessWidget {
   }
 }
 
-Widget downloadIndicator(double progress) => _DownloadIndicator(
-      progress: progress,
-    );
+Widget downloadIndicator(double progress) =>
+    _DownloadIndicator(progress: progress);

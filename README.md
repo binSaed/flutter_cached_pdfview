@@ -63,7 +63,6 @@ import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 | swipeHorizontal       |   ✅    | ✅  |      `false`      |
 | password              |   ✅    | ✅  |      `null`       |
 | nightMode             |   ✅    | ❌  |      `false`      |
-| password              |   ✅    | ✅  |      `null`       |
 | autoSpacing           |   ✅    | ✅  |      `true`       |
 | pageFling             |   ✅    | ✅  |      `true`       |
 | pageSnap              |   ✅    | ❌  |      `true`       |
