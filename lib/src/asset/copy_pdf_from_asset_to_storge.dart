@@ -17,7 +17,6 @@ Future<File> getPdfFromAsset(String assetPath) async {
   try {
     if (!file.existsSync()) {
       //not exist
-      print('not exist');
       final ByteData data = await rootBundle.load(assetPath);
       final Uint8List bytes = data.buffer.asUint8List();
       file = await file.writeAsBytes(bytes);

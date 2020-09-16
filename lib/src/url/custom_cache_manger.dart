@@ -24,7 +24,6 @@ class CustomCacheManger extends BaseCacheManager {
     if (!mapSingleton.containsKey(cacheOption)) {
       mapSingleton[cacheOption] = CustomCacheManger._(cacheOption);
     }
-    print(mapSingleton);
     return mapSingleton[cacheOption] as CustomCacheManger;
   }
 

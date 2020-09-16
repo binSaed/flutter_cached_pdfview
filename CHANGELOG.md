@@ -1,3 +1,3 @@
-## [0.2.3+2] - 14/09/2020.
+## [0.2.3+3] - 16/09/2020.
 
-* update depends
+* update depends and delete print methods
