@@ -20,9 +20,15 @@
 
 ### Support = [**[ Android ,  IOS  and  _WEB_(soon) ](#video)**];
 
-* Support Open Pdf From Path
-* Support Open Pdf From Asset
-* Support Open Pdf From URl and Cache it
+* Open Pdf From Path(local file)
+* Open Pdf From Asset
+* Open Pdf From URl and Cache it
+* Display horizontally or vertically
+* Drag and zoom
+* Double tap for zoom
+* Support password protected pdf
+* Jump to a specific page in the pdf
+
 ---
 ### Setup
 
