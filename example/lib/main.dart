@@ -8,7 +8,10 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context) => MaterialApp(home: MyHomePage());
+  Widget build(BuildContext context) => MaterialApp(
+        home: MyHomePage(),
+        debugShowCheckedModeBanner: false,
+      );
 }
 
 class MyHomePage extends StatelessWidget {
@@ -177,11 +180,11 @@ class PDFViewerFromAsset extends StatelessWidget {
                   onPressed: () async {
                     final PDFViewController pdfController = snapshot.data;
                     final int currentPage =
-                        await pdfController.getCurrentPage();
+                        await pdfController.getCurrentPage() + 1;
                     final int numberOfPages =
                         await pdfController.getPageCount();
-                    if (numberOfPages > currentPage + 1) {
-                      await pdfController.setPage(2);
+                    if (numberOfPages > currentPage) {
+                      await pdfController.setPage(currentPage);
                     }
                   },
                 ),
