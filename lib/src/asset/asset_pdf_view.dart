@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
-import 'package:flutter_cached_pdfview/src/pdf_view_wrapper.dart';
-import 'package:flutter_cached_pdfview/src/utils/show_progress.dart';
 
+import '../../flutter_cached_pdfview.dart';
+import '../pdf_view_wrapper.dart';
+import '../utils/show_progress.dart';
 import 'copy_pdf_from_asset_to_storge.dart';
 
 typedef AssetErrorWidget = Widget Function(dynamic error);

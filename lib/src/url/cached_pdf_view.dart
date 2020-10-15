@@ -2,10 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:flutter_cached_pdfview/src/pdf.dart';
-import 'package:flutter_cached_pdfview/src/pdf_view_wrapper.dart';
-import 'package:flutter_cached_pdfview/src/utils/download_indicator.dart';
 
+import '../pdf.dart';
+import '../pdf_view_wrapper.dart';
 import '../utils/download_indicator.dart';
 import 'custom_cache_manger.dart';
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cached_pdfview/src/utils/show_progress.dart';
+
+import 'show_progress.dart';
 
 typedef PlaceholderWidget = Widget Function(double progress);
 

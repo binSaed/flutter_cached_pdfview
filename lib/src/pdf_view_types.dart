@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cached_pdfview/src/asset/asset_pdf_view.dart';
-import 'package:flutter_cached_pdfview/src/pdf.dart';
-import 'package:flutter_cached_pdfview/src/pdf_view_wrapper.dart';
-import 'package:flutter_cached_pdfview/src/url/cached_pdf_view.dart';
-import 'package:flutter_cached_pdfview/src/utils/error_widget.dart';
-import 'package:flutter_cached_pdfview/src/utils/show_progress.dart';
 
+import 'asset/asset_pdf_view.dart';
+import 'pdf.dart';
+import 'pdf_view_wrapper.dart';
+import 'url/cached_pdf_view.dart';
 import 'utils/download_indicator.dart';
+import 'utils/error_widget.dart';
+import 'utils/show_progress.dart';
 
 extension PDFViewTypes on PDF {
   Widget fromUrl(
