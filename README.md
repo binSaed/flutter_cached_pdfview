@@ -1,6 +1,10 @@
 # flutter_cached_pdfview 
 
 
+<a href="https://github.com/Solido/awesome-flutter">
+   <img alt="Awesome Flutter" src="https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square" />
+</a>
+
 ![Pub Version](https://img.shields.io/pub/v/flutter_cached_pdfview?color=1&label=flutter_cached_pdfview)
 ![GitHub repo size](https://img.shields.io/github/repo-size/AbdOoSaed/flutter_cached_pdfview)
 ![issues-raw](https://img.shields.io/github/issues-raw/AbdOoSaed/flutter_cached_pdfview)
@@ -8,9 +12,6 @@
 ![last-commit](https://img.shields.io/github/last-commit/AbdOoSaed/flutter_cached_pdfview)
 ![stars](https://img.shields.io/github/stars/AbdOoSaed/flutter_cached_pdfview?style=social)
 ![Dart CI](https://github.com/AbdOoSaed/flutter_cached_pdfview/workflows/Dart%20CI/badge.svg)
- <a href="https://www.buymeacoffee.com/abdoo" target="_blank">
-    <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
-  </a>
 
 <p align="center">
     <a href="https://pub.dev/packages/flutter_cached_pdfview">
