@@ -1,15 +1,12 @@
 import 'dart:collection';
-import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:path/path.dart' as p;
-import 'package:path_provider/path_provider.dart';
 
-final HashMap<_CacheOption, BaseCacheManager> mapSingleton =
-    HashMap<_CacheOption, BaseCacheManager>();
+final HashMap<_CacheOption, CacheManager> hashMap =
+    HashMap<_CacheOption, CacheManager>();
 
-class CustomCacheManger extends BaseCacheManager {
+class CustomCacheManger extends CacheManager {
   factory CustomCacheManger({
     @required String key,
     @required Duration maxAgeCacheObject,
@@ -21,23 +18,19 @@ class CustomCacheManger extends BaseCacheManager {
       maxNrOfCacheObjects: maxNrOfCacheObjects,
     );
 
-    if (!mapSingleton.containsKey(cacheOption)) {
-      mapSingleton[cacheOption] = CustomCacheManger._(cacheOption);
+    if (!hashMap.containsKey(cacheOption)) {
+      hashMap[cacheOption] = CustomCacheManger._(cacheOption);
     }
-    return mapSingleton[cacheOption] as CustomCacheManger;
+    return hashMap[cacheOption] as CustomCacheManger;
   }
 
   CustomCacheManger._(this._cacheOption)
-      : super(_cacheOption.key,
-            maxAgeCacheObject: _cacheOption.maxAgeCacheObject,
-            maxNrOfCacheObjects: _cacheOption.maxNrOfCacheObjects);
+      : super(Config(
+          _cacheOption.key,
+          stalePeriod: _cacheOption.maxAgeCacheObject,
+          maxNrOfCacheObjects: _cacheOption.maxNrOfCacheObjects,
+        ));
   final _CacheOption _cacheOption;
-
-  @override
-  Future<String> getFilePath() async {
-    final Directory directory = await getTemporaryDirectory();
-    return p.join(directory.path, _cacheOption.key);
-  }
 }
 
 @immutable
