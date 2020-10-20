@@ -24,13 +24,12 @@ class CustomCacheManger extends CacheManager {
     return hashMap[cacheOption] as CustomCacheManger;
   }
 
-  CustomCacheManger._(this._cacheOption)
+  CustomCacheManger._(_CacheOption cacheOption)
       : super(Config(
-          _cacheOption.key,
-          stalePeriod: _cacheOption.maxAgeCacheObject,
-          maxNrOfCacheObjects: _cacheOption.maxNrOfCacheObjects,
+          cacheOption.key,
+          stalePeriod: cacheOption.maxAgeCacheObject,
+          maxNrOfCacheObjects: cacheOption.maxNrOfCacheObjects,
         ));
-  final _CacheOption _cacheOption;
 }
 
 @immutable
