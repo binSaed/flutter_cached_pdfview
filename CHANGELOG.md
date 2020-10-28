@@ -1,3 +1,3 @@
-## [0.2.9] - 20/10/2020.
+## [0.3.0] - 28/10/2020.
 
-* update depends
+* new in cachedFromUrl now u can get filePath whenDone

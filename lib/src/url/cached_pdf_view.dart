@@ -9,6 +9,7 @@ import '../utils/download_indicator.dart';
 import 'custom_cache_manger.dart';
 
 typedef DownloadingErrorWidget = Widget Function(dynamic error);
+typedef WhenDone = void Function(String filePath);
 
 class CachedPDFView extends StatelessWidget {
   const CachedPDFView(
@@ -21,6 +22,7 @@ class CachedPDFView extends StatelessWidget {
     this.headers,
     this.maxAgeCacheObject,
     this.maxNrOfCacheObjects,
+    this.whenDone,
   }) : super(key: key);
 
   /// pdf url like 'www.test.example,pdf'
@@ -46,6 +48,9 @@ class CachedPDFView extends StatelessWidget {
   final int maxNrOfCacheObjects;
   final String _cacheKey;
 
+  /// whenDone call when file download and cached
+  final WhenDone whenDone;
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<FileResponse>(
@@ -66,8 +71,12 @@ class CachedPDFView extends StatelessWidget {
                   .roundToDouble();
           return placeholder(progress);
         } else {
+          final String filePath = (snapshot.data as FileInfo).file.path;
+          if (whenDone != null) {
+            whenDone(filePath);
+          }
           return PDFViewWrapper(
-            path: (snapshot.data as FileInfo).file.path,
+            path: filePath,
             pdf: pdf,
             key: key,
           );

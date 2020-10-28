@@ -37,6 +37,7 @@ extension PDFViewTypes on PDF {
     Map<String, String> headers,
     Duration maxAgeCacheObject = const Duration(days: 10),
     int maxNrOfCacheObjects = 100,
+    WhenDone whenDone,
   }) {
     return CachedPDFView(
       'libCachedPdfView',
@@ -48,6 +49,7 @@ extension PDFViewTypes on PDF {
       headers: headers,
       maxAgeCacheObject: maxAgeCacheObject,
       maxNrOfCacheObjects: maxNrOfCacheObjects,
+      whenDone: whenDone,
     );
   }
 
