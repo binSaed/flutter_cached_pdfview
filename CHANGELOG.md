@@ -1,3 +1,4 @@
-## [0.3.0] - 28/10/2020.
+## [0.3.1] - 25/11/2020.
 
-* new in cachedFromUrl now u can get filePath whenDone
+* Fixed setPage return value from int to bool on iOS
+* Upgrade Android SDK version to 29
