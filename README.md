@@ -161,9 +161,8 @@ If you use proguard, you should include this line [ready-made in the [Example](h
 
 
 # Support
-
 <p align="center">
-<a  href="https://www.buymeacoffee.com/abdoo" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/lato-blue.png" alt="Buy Me A Coffee" height=60 ></a>
+<a  href="https://ko-fi.com/abdosaed#paypalModal" target="_blank"><img src="https://www.ko-fi.com/img/githubbutton_sm.svg" alt="Buy Me A Coffee" height=60 ></a>
 </p>
 
 <p align="center">
