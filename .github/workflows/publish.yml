@@ -24,8 +24,6 @@ jobs:
         run: flutter test
       - name: flutter format lib
         run: flutter format lib/** --set-exit-if-changed
-      - name: Removing example folder
-        run: rm -rf example
       - name: Setup Pub Credentials
         shell: bash
         env:
