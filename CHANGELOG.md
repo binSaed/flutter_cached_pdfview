@@ -1,4 +1,3 @@
-## [0.3.1] - 25/11/2020.
+## [0.3.2] - 10/12/2020.
 
-* Fixed setPage return value from int to bool on iOS
-* Upgrade Android SDK version to 29
+* update dependencies
