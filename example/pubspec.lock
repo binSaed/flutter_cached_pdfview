@@ -110,14 +110,14 @@ packages:
       name: flutter_cache_manager
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   flutter_cached_pdfview:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.3.3"
+    version: "0.3.5"
   flutter_pdfview:
     dependency: transitive
     description:
@@ -185,7 +185,7 @@ packages:
       name: path_provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.24"
+    version: "1.6.27"
   path_provider_linux:
     dependency: transitive
     description:
