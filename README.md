@@ -135,7 +135,7 @@ If you use proguard, you should include this line [ready-made in the [Example](h
 
 [flutter_cache_manager](https://pub.dev/packages/flutter_cache_manager)
 
-### Android
+### Android (only support >= api 20)
 
 [AndroidPdfViewer](https://github.com/barteksc/AndroidPdfViewer)
 
