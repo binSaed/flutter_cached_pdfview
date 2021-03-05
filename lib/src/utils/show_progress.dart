@@ -7,8 +7,8 @@ typedef LoadingWidget = Widget Function();
 
 class ShowProgress extends StatelessWidget {
   /// progress optional only worked with android
-  const ShowProgress({Key key, this.progress}) : super(key: key);
-  final double progress;
+  const ShowProgress({Key? key, this.progress}) : super(key: key);
+  final double? progress;
 
   @override
   Widget build(BuildContext context) {

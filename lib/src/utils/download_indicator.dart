@@ -5,10 +5,10 @@ import 'show_progress.dart';
 typedef PlaceholderWidget = Widget Function(double progress);
 
 class _DownloadIndicator extends StatelessWidget {
-  const _DownloadIndicator({Key key, this.progress}) : super(key: key);
+  const _DownloadIndicator({Key? key, this.progress}) : super(key: key);
 
   /// progress for Download
-  final double progress;
+  final double? progress;
 
   @override
   Widget build(BuildContext context) {

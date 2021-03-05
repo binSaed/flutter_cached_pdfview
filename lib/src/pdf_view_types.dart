@@ -11,10 +11,10 @@ import 'utils/show_progress.dart';
 extension PDFViewTypes on PDF {
   Widget fromUrl(
     String url, {
-    Key key,
+    Key? key,
     PlaceholderWidget placeholder = downloadIndicator,
     DownloadingErrorWidget errorWidget = errorWidgetHolder,
-    Map<String, String> headers,
+    Map<String, String>? headers,
   }) {
     return CachedPDFView(
       'without_cache',
@@ -31,13 +31,13 @@ extension PDFViewTypes on PDF {
 
   Widget cachedFromUrl(
     String url, {
-    Key key,
+    Key? key,
     PlaceholderWidget placeholder = downloadIndicator,
     DownloadingErrorWidget errorWidget = errorWidgetHolder,
-    Map<String, String> headers,
+    Map<String, String>? headers,
     Duration maxAgeCacheObject = const Duration(days: 10),
     int maxNrOfCacheObjects = 100,
-    WhenDone whenDone,
+    WhenDone? whenDone,
   }) {
     return CachedPDFView(
       'libCachedPdfView',
@@ -53,7 +53,7 @@ extension PDFViewTypes on PDF {
     );
   }
 
-  Widget fromPath(String path, {Key key}) {
+  Widget fromPath(String path, {Key? key}) {
     return PDFViewWrapper(
       key: key,
       pdf: this,
@@ -63,7 +63,7 @@ extension PDFViewTypes on PDF {
 
   Widget fromAsset(
     String pathOfAsset, {
-    Key key,
+    Key? key,
     AssetErrorWidget errorWidget = errorWidgetHolder,
     LoadingWidget loadingWidget = loadingWidgetHolder,
   }) {

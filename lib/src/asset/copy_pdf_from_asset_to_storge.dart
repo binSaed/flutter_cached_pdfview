@@ -10,7 +10,7 @@ Future<File> getPdfFromAsset(String assetPath) async {
   assert(assetPath.toLowerCase().endsWith('.pdf'),
       throw '($assetPath) should endsWith ".pdf".');
   final RegExp regexp = RegExp(r'[\w-]+\.(pdf|PDF)');
-  final String pdfName = regexp.stringMatch(assetPath);
+  final String? pdfName = regexp.stringMatch(assetPath);
 
   final Directory dir = await getApplicationDocumentsDirectory();
   File file = File('${dir.path}/$pdfName');
