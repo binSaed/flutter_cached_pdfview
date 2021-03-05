@@ -11,20 +11,24 @@ typedef AssetErrorWidget = Widget Function(dynamic error);
 
 class AssetPDFView extends StatelessWidget {
   const AssetPDFView(
-      {Key? key, this.assetPath, this.pdf, this.errorWidget, this.loadingWidget})
+      {Key? key,
+      this.assetPath,
+      required this.pdf,
+      required this.errorWidget,
+      required this.loadingWidget})
       : super(key: key);
 
   /// assetPath like 'asset/example.pdf'
   final String? assetPath;
 
   /// Pdf Model
-  final PDF? pdf;
+  final PDF pdf;
 
   /// Widget displayed while the target [assetPath] failed to get from asset.
-  final AssetErrorWidget? errorWidget;
+  final AssetErrorWidget errorWidget;
 
   /// Widget displayed while [assetPath] copying to local storage
-  final LoadingWidget? loadingWidget;
+  final LoadingWidget loadingWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +40,10 @@ class AssetPDFView extends StatelessWidget {
         }
 
         if (snapshot.hasData && snapshot.data == null || snapshot.hasError) {
-          return errorWidget!(snapshot.error);
+          return errorWidget(snapshot.error);
         }
 
-        return loadingWidget!();
+        return loadingWidget();
       },
     );
   }
