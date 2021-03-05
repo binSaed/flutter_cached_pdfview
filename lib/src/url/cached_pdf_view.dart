@@ -16,7 +16,7 @@ class CachedPDFView extends StatelessWidget {
     this._cacheKey, {
     Key? key,
     required this.url,
-    this.pdf,
+    required this.pdf,
     this.placeholder,
     this.errorWidget,
     this.headers,
@@ -29,7 +29,7 @@ class CachedPDFView extends StatelessWidget {
   final String url;
 
   /// Pdf Model
-  final PDF? pdf;
+  final PDF pdf;
 
   /// Widget displayed while the target [url] is loading.
   final PlaceholderWidget? placeholder;
