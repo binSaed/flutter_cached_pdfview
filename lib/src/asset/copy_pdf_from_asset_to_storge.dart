@@ -11,7 +11,9 @@ Future<File> getPdfFromAsset(String assetPath) async {
       throw '($assetPath) should endsWith ".pdf".');
   final RegExp regexp = RegExp(r'[\w-]+\.(pdf|PDF)');
   final String? pdfName = regexp.stringMatch(assetPath);
-
+  if (pdfName == null || pdfName.trim().isEmpty) {
+    throw Exception('Error opening asset file: $pdfName');
+  }
   final Directory dir = await getApplicationDocumentsDirectory();
   File file = File('${dir.path}/$pdfName');
   try {
