@@ -1,3 +1,3 @@
-## [0.3.5] - 20/1/2020.
+## [0.4.0-nullsafety] - 20/1/2020.
 
-* update dependencies
+* Upgraded to flutter 2 sound nullsafety
