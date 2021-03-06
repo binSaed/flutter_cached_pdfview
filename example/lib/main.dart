@@ -25,7 +25,7 @@ class MyHomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          FlatButton(
+          TextButton(
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute<dynamic>(
@@ -36,7 +36,7 @@ class MyHomePage extends StatelessWidget {
             ),
             child: const Text('PDF From Url'),
           ),
-          FlatButton(
+          TextButton(
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute<dynamic>(
@@ -47,7 +47,7 @@ class MyHomePage extends StatelessWidget {
             ),
             child: const Text('Cashed PDF From Url'),
           ),
-          FlatButton(
+          TextButton(
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute<dynamic>(
@@ -65,7 +65,7 @@ class MyHomePage extends StatelessWidget {
 }
 
 class PDFViewerFromUrl extends StatelessWidget {
-  const PDFViewerFromUrl({Key key, @required this.url}) : super(key: key);
+  const PDFViewerFromUrl({Key? key, required this.url}) : super(key: key);
 
   final String url;
 
@@ -85,7 +85,7 @@ class PDFViewerFromUrl extends StatelessWidget {
 }
 
 class PDFViewerCachedFromUrl extends StatelessWidget {
-  const PDFViewerCachedFromUrl({Key key, @required this.url}) : super(key: key);
+  const PDFViewerCachedFromUrl({Key? key, required this.url}) : super(key: key);
 
   final String url;
 
@@ -105,7 +105,7 @@ class PDFViewerCachedFromUrl extends StatelessWidget {
 }
 
 class PDFViewerFromAsset extends StatelessWidget {
-  PDFViewerFromAsset({Key key, @required this.pdfAssetPath}) : super(key: key);
+  PDFViewerFromAsset({Key? key, required this.pdfAssetPath}) : super(key: key);
   final String pdfAssetPath;
   final Completer<PDFViewController> _pdfViewController =
       Completer<PDFViewController>();
@@ -129,7 +129,7 @@ class PDFViewerFromAsset extends StatelessWidget {
                         shape: BoxShape.circle,
                         color: Colors.blue[900],
                       ),
-                      child: Text(snapshot.data),
+                      child: Text(snapshot.data!),
                     ),
                   );
                 }
@@ -142,12 +142,12 @@ class PDFViewerFromAsset extends StatelessWidget {
         swipeHorizontal: true,
         autoSpacing: false,
         pageFling: false,
-        onPageChanged: (int current, int total) =>
-            _pageCountController.add('${current + 1} - $total'),
+        onPageChanged: (int? current, int? total) =>
+            _pageCountController.add('${current! + 1} - $total'),
         onViewCreated: (PDFViewController pdfViewController) async {
           _pdfViewController.complete(pdfViewController);
-          final int currentPage = await pdfViewController.getCurrentPage();
-          final int pageCount = await pdfViewController.getPageCount();
+          final int currentPage = await pdfViewController.getCurrentPage() ?? 0;
+          final int? pageCount = await pdfViewController.getPageCount();
           _pageCountController.add('${currentPage + 1} - $pageCount');
         },
       ).fromAsset(
@@ -166,9 +166,9 @@ class PDFViewerFromAsset extends StatelessWidget {
                   heroTag: '-',
                   child: const Text('-'),
                   onPressed: () async {
-                    final PDFViewController pdfController = snapshot.data;
+                    final PDFViewController pdfController = snapshot.data!;
                     final int currentPage =
-                        await pdfController.getCurrentPage() - 1;
+                        (await pdfController.getCurrentPage())! - 1;
                     if (currentPage >= 0) {
                       await pdfController.setPage(currentPage);
                     }
@@ -178,11 +178,10 @@ class PDFViewerFromAsset extends StatelessWidget {
                   heroTag: '+',
                   child: const Text('+'),
                   onPressed: () async {
-                    final PDFViewController pdfController = snapshot.data;
+                    final PDFViewController pdfController = snapshot.data!;
                     final int currentPage =
-                        await pdfController.getCurrentPage() + 1;
-                    final int numberOfPages =
-                        await pdfController.getPageCount();
+                        (await pdfController.getCurrentPage())! + 1;
+                    final int numberOfPages = await pdfController.getPageCount() ?? 0;
                     if (numberOfPages > currentPage) {
                       await pdfController.setPage(currentPage);
                     }

@@ -32,7 +32,7 @@ class PDF {
   final bool preventLinkNavigation;
 
   /// if pdf is protected u should provide a password
-  final String password;
+  final String? password;
 
   ///set nightMode true, false
   final bool nightMode;
@@ -46,16 +46,16 @@ class PDF {
   final bool fitEachPage;
 
   /// If not null invoked once the web view is created.
-  final PDFViewCreatedCallback onViewCreated;
+  final PDFViewCreatedCallback? onViewCreated;
 
   /// If not null invoked once the web view is created.
-  final RenderCallback onRender;
-  final PageChangedCallback onPageChanged;
+  final RenderCallback? onRender;
+  final PageChangedCallback? onPageChanged;
 
   /// return dynamic error
-  final ErrorCallback onError;
-  final PageErrorCallback onPageError;
-  final LinkHandlerCallback onLinkHandler;
+  final ErrorCallback? onError;
+  final PageErrorCallback? onPageError;
+  final LinkHandlerCallback? onLinkHandler;
 
   /// Which gestures should be consumed by the pdf view.
   ///
@@ -66,5 +66,5 @@ class PDF {
   ///
   /// When this set is empty or null, the pdf view will only handle pointer events for gestures that
   /// were not claimed by any other gesture recognizer.
-  final Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers;
+  final Set<Factory<OneSequenceGestureRecognizer>>? gestureRecognizers;
 }

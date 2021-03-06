@@ -8,9 +8,9 @@ final HashMap<_CacheOption, CacheManager> hashMap =
 
 class CustomCacheManger extends CacheManager {
   factory CustomCacheManger({
-    @required String key,
-    @required Duration maxAgeCacheObject,
-    @required int maxNrOfCacheObjects,
+    required String key,
+    required Duration? maxAgeCacheObject,
+    required int? maxNrOfCacheObjects,
   }) {
     final _CacheOption cacheOption = _CacheOption(
       key: key,
@@ -26,9 +26,9 @@ class CustomCacheManger extends CacheManager {
 
   CustomCacheManger._(_CacheOption cacheOption)
       : super(Config(
-          cacheOption.key,
-          stalePeriod: cacheOption.maxAgeCacheObject,
-          maxNrOfCacheObjects: cacheOption.maxNrOfCacheObjects,
+          cacheOption.key!,
+          stalePeriod: cacheOption.maxAgeCacheObject!,
+          maxNrOfCacheObjects: cacheOption.maxNrOfCacheObjects!,
         ));
 }
 
@@ -37,10 +37,10 @@ class _CacheOption {
   const _CacheOption(
       {this.key, this.maxAgeCacheObject, this.maxNrOfCacheObjects});
 
-  final String key;
+  final String? key;
 
-  final Duration maxAgeCacheObject;
-  final int maxNrOfCacheObjects;
+  final Duration? maxAgeCacheObject;
+  final int? maxNrOfCacheObjects;
 
   @override
   bool operator ==(Object other) =>
