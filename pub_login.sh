@@ -22,9 +22,11 @@ if [ -z "${PUB_DEV_PUBLISH_EXPIRATION}" ]; then
   echo "Missing PUB_DEV_PUBLISH_EXPIRATION environment variable"
   exit 1
 fi
+# ADD THIS LINE TO CREATE THE DIRECTORY
+mkdir -p ~/.pub-cache
 
 # Create credentials.json file.
-cat <<EOF > $FLUTTER_HOME/.pub-cache/credentials.json
+cat <<EOF > ~/.pub-cache/credentials.json
 {
   "accessToken":"${PUB_DEV_PUBLISH_ACCESS_TOKEN}",
   "refreshToken":"${PUB_DEV_PUBLISH_REFRESH_TOKEN}",
