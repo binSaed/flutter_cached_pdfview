@@ -14,7 +14,7 @@ dependencies:
   flutter_pdfview: ">=1.0.0 <2.0.0"
   flutter_cache_manager: ">=3.0.0 <4.0.0"
   path_provider: ">=2.0.0 <3.0.0"
-  path: ^1.8.0
+  path: ">=1.0.0 <2.0.0"
 
 dev_dependencies:
   flutter_test:
