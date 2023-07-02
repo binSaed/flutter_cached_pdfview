@@ -8,14 +8,14 @@ on:
 
 jobs:
   build:
-    runs-on: macos-10.15
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v1
       - name: Install Flutter
         uses: subosito/flutter-action@v1
         with:
-          flutter-version: '2.0.1'
+         flutter-version: '3.7.12'
       - name: Install dependencies
         run: flutter pub get
       - name: Analyze
