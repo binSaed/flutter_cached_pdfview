@@ -4,6 +4,14 @@ version: 0.4.2
 homepage: https://bnsaed.com/
 repository: https://github.com/binSaed/flutter_cached_pdfview
 issue_tracker: https://github.com/binSaed/flutter_cached_pdfview/issues
+
+
+topics:
+  - pdf
+  - pdf_view
+  - cache
+  - pdf_cache
+
 environment:
   sdk: ">=2.12.0 <3.0.0"
 # new pubspec
