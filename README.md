@@ -166,7 +166,7 @@ If you use proguard, you should include this line [ready-made in the [Example](h
 </p>
 
 <p align="center">
-    <a href="https://www.paypal.me/abdoosaed/5" target="_blank">
+    <a href="https://www.paypal.me/bnsaed/5" target="_blank">
    <img height=60 src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" >
     </a>
     <br>    buy me a coffee by PayPal
@@ -174,4 +174,4 @@ If you use proguard, you should include this line [ready-made in the [Example](h
 
 ### Developer
 
-- [Abdelrahman Saed](https://github.com/AbdOoSaed)
+- [Abdelrahman Saed](https://github.com/binSaed)
