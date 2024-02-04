@@ -66,7 +66,7 @@ class CachedPDFView extends StatelessWidget {
           return errorWidget!(snapshot.error);
         } else if (loading) {
           final double progress =
-              (((snapshot.data as DownloadProgress?)?.progress ?? 0) * 100)
+              ((snapshot.data as DownloadProgress?)?.progress ?? 0)
                   .roundToDouble();
           return placeholder!(progress);
         } else {
