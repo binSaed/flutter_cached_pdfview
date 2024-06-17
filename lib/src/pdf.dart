@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
@@ -22,6 +24,7 @@ class PDF {
     this.defaultPage = 0,
     this.fitPolicy = FitPolicy.WIDTH,
     this.preventLinkNavigation = false,
+    this.backgroundColor,
   });
 
   ///enable or disable Swipe
@@ -56,6 +59,8 @@ class PDF {
   final ErrorCallback? onError;
   final PageErrorCallback? onPageError;
   final LinkHandlerCallback? onLinkHandler;
+
+  final Color? backgroundColor;
 
   /// Which gestures should be consumed by the pdf view.
   ///

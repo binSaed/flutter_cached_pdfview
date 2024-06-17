@@ -141,6 +141,7 @@ class PDFViewerFromAsset extends StatelessWidget {
         swipeHorizontal: true,
         autoSpacing: false,
         pageFling: false,
+        backgroundColor: Colors.grey,
         onPageChanged: (int? current, int? total) =>
             _pageCountController.add('${current! + 1} - $total'),
         onViewCreated: (PDFViewController pdfViewController) async {
