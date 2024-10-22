@@ -1,3 +1,3 @@
-## [0.4.2] - 2/6/2023.
+## [0.4.3] - 22/10/2024.
 
-* Upgrade dependencies
+* add background color

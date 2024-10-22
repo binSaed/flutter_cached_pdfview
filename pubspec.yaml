@@ -8,9 +8,9 @@ issue_tracker: https://github.com/binSaed/flutter_cached_pdfview/issues
 
 topics:
   - pdf
-  - pdf_view
   - cache
-  - pdf_cache
+  - pdf-cache
+  - pdf-view
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
