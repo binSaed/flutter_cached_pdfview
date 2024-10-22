@@ -55,7 +55,7 @@ import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 ## Options
 
 | Name                  | Android | iOS |      Default      |
-| :-------------------- | :-----: | :-: | :---------------: |
+|:----------------------| :-----: | :-: |:-----------------:|
 | defaultPage           |   ✅    | ✅  |        `0`        |
 | onViewCreated         |   ✅    | ✅  |      `null`       |
 | onRender              |   ✅    | ✅  |      `null`       |
@@ -74,6 +74,7 @@ import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 | pageFling             |   ✅    | ✅  |      `true`       |
 | pageSnap              |   ✅    | ❌  |      `true`       |
 | preventLinkNavigation |   ✅    | ✅  |      `false`      |
+| bockgroundColor       |   ✅    | ✅  |      `null`       |
 
 ## Controller Options
 
@@ -91,6 +92,7 @@ import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
         swipeHorizontal: true,
         autoSpacing: false,
         pageFling: false,
+        backgroundColor: Colors.grey,
         onError: (error) {
           print(error.toString());
         },
