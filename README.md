@@ -107,13 +107,13 @@ import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 ```dart
       PDF(
         swipeHorizontal: true,
-      ).cachedFromUrl('http://africau.edu/images/default/sample.pdf'),
+      ).cachedFromUrl('https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf'),
 
 ```
 #### with placeholder until pdfFile download and errorWidget if there are problem
 ```dart
       PDF().cachedFromUrl(
-             'http://africau.edu/images/default/sample.pdf',
+             'https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf',
              placeholder: (progress) => Center(child: Text('$progress %')),
              errorWidget: (error) => Center(child: Text(error.toString())),
            )

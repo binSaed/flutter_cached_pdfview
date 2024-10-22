@@ -29,7 +29,8 @@ class MyHomePage extends StatelessWidget {
               context,
               MaterialPageRoute<dynamic>(
                 builder: (_) => const PDFViewerFromUrl(
-                  url: 'http://africau.edu/images/default/sample.pdf',
+                  url:
+                      'https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf',
                 ),
               ),
             ),
@@ -40,7 +41,8 @@ class MyHomePage extends StatelessWidget {
               context,
               MaterialPageRoute<dynamic>(
                 builder: (_) => const PDFViewerCachedFromUrl(
-                  url: 'http://africau.edu/images/default/sample.pdf',
+                  url:
+                      'https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf',
                 ),
               ),
             ),
