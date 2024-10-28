@@ -43,6 +43,19 @@ iOS (only support> 11.0) you need to add this line in your ios/Podfile
 `platform :ios, '11.0'`
 
 ready-made in the [Example](https://github.com/AbdOoSaed/flutter_cached_pdfview/tree/master/example)
+   
+#### Android
+If you are using the most version 0.4.1, in your `android/build.gradle` file, add the jcenter repository. Otherwise, the project will fail to build due to failing to find certain dependencies.
+
+```
+allprojects {
+   repositories {
+      google()
+      mavenCentral()
+      jcenter()
+   }
+}
+```
 
 ### Import it
 
