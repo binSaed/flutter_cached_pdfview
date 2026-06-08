@@ -15,7 +15,7 @@
 
 <p align="center">
     <a href="https://pub.dev/packages/flutter_cached_pdfview">
-   <img src="https://firebasestorage.googleapis.com/v0/b/iam-jobs.appspot.com/o/flutter_cached_pdfview.png?alt=media&token=853143c0-250d-4647-840d-98f11d25dbb5">
+   <img src="https://github.com/user-attachments/assets/77ccded4-5c51-4583-9830-0f1c66e627c4">
     </a>
     <br>A package to show Native PDF View for iOS and Android, support Open from a different resource like Path, Asset or Url and Cache it.
 
