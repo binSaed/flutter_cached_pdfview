@@ -19,6 +19,8 @@
     </a>
     <br>A package to show Native PDF View for iOS and Android, support Open from a different resource like Path, Asset or Url and Cache it.
 
+> 📖 **[Read the case study](https://bnsaed.com/case-studies/flutter-cached-pdfview/)** — how this package is built and maintained — and the **[step-by-step usage guide](https://bnsaed.com/articles/flutter-cached-pdfview-guide/)** by the author.
+
 ### Support = [**[ Android ,  IOS  and  _WEB_(soon) ](#video)**];
 
 * Open Pdf From Path(local file)
